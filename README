@@ -1,0 +1,6 @@
+Creates a sample java application and build a docker image from java archive
+
+Run maven install to create java archive
+Run docker docker build -t <docker_image_name> <Dockerfile directory>
+
+Run docker run <image_id> to run a new container and tests the app.
