@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration>
+  <Properties>
+    <Property name="filename">target/test.log</Property>
+  </Properties>
   <Appenders>
    <File name="dockertest_log" fileName="logs/app.log">
       <PatternLayout>
@@ -9,7 +12,7 @@
   </Appenders>
   <Loggers>
     <Root level="info">
-      <AppenderRef ref="Console"/>
+      <AppenderRef ref="dockertest_log"/>
     </Root>
   </Loggers>
 </Configuration>
