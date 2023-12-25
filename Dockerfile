@@ -1,3 +1,5 @@
+#docker build -t dockertest .
+
 FROM openjdk:11
 
 RUN mkdir /app
