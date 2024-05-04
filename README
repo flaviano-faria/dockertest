@@ -4,3 +4,28 @@ Run maven install to create java archive
 Run docker docker build -t <docker_image_name> <Dockerfile directory>
 
 Run docker run <image_id> to run a new container and tests the app.
+
+#BindMounting a volume to share container log file with host 
+#docker run --name=dockertest -d -v ~/dockertestlogs:/app/logs  dockertest
+
+#start splunk container
+docker run --network skynet --hostname splunkhost -d -p 8000:8000 -e "SPLUNK_START_ARGS=--accept-license" -e "SPLUNK_PASSWORD=12345678"  --name splunk splunk/splunk
+
+#install universal forwarder on host server
+wget -O splunkforwarder-9.0.4-de405f4a7979-linux-2.6-amd64.deb "https://download.splunk.com/products/universalforwarder/releases/9.0.4/linux/splunkforwarder-9.0.4-de405f4a7979-linux-2.6-amd64.deb"
+
+#universal forwarder useful to verify:
+
+#check logs
+/opt/splunkforwarder$ sudo cat var/log/splunk/splunkd.log
+
+#enable listen port
+/opt/splunkforwarder/bin$ ./splunk enable listen 9997 -auth <user>:<password>
+
+#configure directory to monitor
+/opt/splunkforwarder/bin ./splunk add monitor /home/taj/dockertestlogs
+
+#check configs
+./splunk list forward-server
+./splunk list monitor 
+
