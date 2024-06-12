@@ -12,7 +12,7 @@ pipeline {
 	         * docker build on the command line */
 	     	steps{
 	     	    script{		 	   
-					app = docker.build("dockertest")			 		 	    
+					app = docker.build("dockertest", "-f Dockerfile .")			 		 	    
 		 		}		     	    
 	     	}	 		      
     	}
