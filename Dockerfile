@@ -5,6 +5,7 @@ FROM openjdk:11
 RUN mkdir /app
 
 COPY target/classes/ /app
+COPY . /app
 COPY target/lib/ /app/lib/
 WORKDIR /app
 
