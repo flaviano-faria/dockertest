@@ -11,7 +11,9 @@ pipeline {
 	        /* This builds the actual image; synonymous to
 	         * docker build on the command line */
 			steps{
-			    app = docker.build("dockertest")			    
+				step{
+				    app = docker.build("dockertest")			
+				}			        
 			}	        
     	}
     	
