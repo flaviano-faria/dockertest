@@ -8,7 +8,11 @@ pipeline {
            
         }
         
-  
+  		stage ('Maven install') {
+            steps {
+                sh 'mvn -Dmaven.test.failure.ignore=true install' 
+            }           
+        }
         
          stage('Build image') {
 	        /* This builds the actual image; synonymous to
