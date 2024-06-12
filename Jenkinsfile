@@ -10,9 +10,11 @@ pipeline {
          stage('Build image') {
 	        /* This builds the actual image; synonymous to
 	         * docker build on the command line */
-		 	script{		 	   
-				app = docker.build("dockertest")			 		 	    
-		 	}			      
+	     	steps{
+	     	    script{		 	   
+					app = docker.build("dockertest")			 		 	    
+		 		}		     	    
+	     	}	 		      
     	}
     	
     	stage('Test image') {
