@@ -11,9 +11,7 @@ pipeline {
 	        /* This builds the actual image; synonymous to
 	         * docker build on the command line */
 			steps{
-				step{
-				    app = docker.build("dockertest")			
-				}			        
+			    app = docker.build("dockertest")			    
 			}	        
     	}
     	
@@ -22,7 +20,7 @@ pipeline {
 	         * For this example, we're using a Volkswagen-type approach ;-) */
 			steps{
 			     app.inside {
-	            sh 'echo "Tests passed"'
+	            	sh 'echo "Tests passed"'
 	        	}			    
 			}	       
     	}
