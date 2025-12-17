@@ -29,3 +29,8 @@ wget -O splunkforwarder-9.0.4-de405f4a7979-linux-2.6-amd64.deb "https://download
 ./splunk list forward-server
 ./splunk list monitor 
 
+Useful splunk regex:
+
+Extract fields from xml raw: <request><id>12345</id><name>test 2 name</name></request>
+index=dockertest | rex field=_raw "<id>(?<id>[^<]+)</id>" | table id
+
