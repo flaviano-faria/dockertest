@@ -145,11 +145,4 @@ spring_splunk/
 - **Docker Configuration:** `Dockerfile`
 - **CI/CD Configuration:** `Jenkinsfile`
 
-## License
-
-[Specify your license here]
-
-## Contributing
-
-[Add contribution guidelines if applicable]
 
