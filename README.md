@@ -111,8 +111,11 @@ Check **forward server** and **monitor** configurations:
 
 ### Extract Fields from XML
 
+
+
 Extract fields from XML raw data. **Example XML:**
 
+Given the following log:
 ```xml
 <request><id>12345</id><name>test 2 name</name></request>
 ```
