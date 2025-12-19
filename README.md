@@ -115,24 +115,24 @@ Check **forward server** and **monitor** configurations:
 
 Extract fields from XML raw data. **Example XML:**
 
-Given the following log:
+1. Given the following log:
 ```xml
 <request><id>12345</id><name>test 2 name</name></request>
 ```
 
-**Splunk query** to extract the `id` field:
+1.1. **Splunk query** to extract the `id` field:
 
 ```
 index=dockertest | rex field=_raw "<id>(?<id>[^<]+)</id>" | table id
 ```
 
-given the following log:
+2. given the following log:
 ```
 2025-12-18 16:25:23,112 INFO  [main] <request><id>123456</id><value>2.40</value></request>
 2025-12-18 16:25:24,112 INFO  [main] <request><id>1234567</id><value>5.00</value></request>
 2025-12-18 16:25:25,112 INFO  [main] <request><id>12345678</id><value>10.00</value></request>
 ```
-Retrieve all distinct "value":
+2.1. Retrieve all distinct "value":
 ```
 index=dockertest | rex "<value>(?<value>[^<]+)</value>" | table value | dedup value
 ```
