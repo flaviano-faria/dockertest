@@ -159,7 +159,7 @@ index=dockertest | rex "<value>(?<value>[^<]+)</value>" | table value | dedup va
 2025-12-21 15:25:25,112 INFO  [main] <request><id>12345678</id><value>10.00</value></request>
 2025-12-21 15:25:35,112 INFO  [main] <request><id>123456789</id><value>14.00</value></request>
 ```
-4.1. Retrieve sum from "value":
+4.1. Retrieve average from "value":
 ```
 index=dockertest | rex "<value>(?<value>[^<]+)</value>" | table value | dedup value | stats avg(value)
 ```
