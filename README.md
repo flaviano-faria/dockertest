@@ -107,6 +107,11 @@ Check **forward server** and **monitor** configurations:
 ./splunk list monitor
 ```
 
+Create index :
+<img width="1366" height="768" alt="Captura de tela de 2025-12-21 15-32-48" src="https://github.com/user-attachments/assets/0f97027c-9eb4-4d5b-bab5-c379c752b3f2" />
+
+
+
 ## Splunk Query Examples
 
 ### Extract Fields from XML
