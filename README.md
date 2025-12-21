@@ -152,8 +152,17 @@ index=dockertest | rex "<value>(?<value>[^<]+)</value>" | table value | dedup va
 ```
 index=dockertest | rex "<value>(?<value>[^<]+)</value>" | table value | dedup value | stats sum(value)
 ```
-
-
+4. given the following log:
+```
+2025-12-21 15:25:23,112 INFO  [main] <request><id>123456</id><value>2.40</value></request>
+2025-12-21 15:25:24,112 INFO  [main] <request><id>1234567</id><value>5.00</value></request>
+2025-12-21 15:25:25,112 INFO  [main] <request><id>12345678</id><value>10.00</value></request>
+2025-12-21 15:25:35,112 INFO  [main] <request><id>123456789</id><value>14.00</value></request>
+```
+4.1. Retrieve sum from "value":
+```
+index=dockertest | rex "<value>(?<value>[^<]+)</value>" | table value | dedup value | stats avg(value)
+```
 
 ## Project Structure
 
