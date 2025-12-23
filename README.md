@@ -163,6 +163,16 @@ index=dockertest | rex "<value>(?<value>[^<]+)</value>" | table value | dedup va
 ```
 index=dockertest | rex "<value>(?<value>[^<]+)</value>" | table value | dedup value | stats avg(value)
 ```
+5. given the following log:
+```
+2025-12-22 20:25:24,112 INFO  [main] <request><id>1234567</id><value>5.00</value></request>
+2025-12-22 20:25:25,112 INFO  [main] <request><id>12345678</id><value>10.00</value></request>
+2025-12-22 20:25:35,112 INFO  [main] <request><id>123456789</id><value>14.00</value></request>
+```
+5.1. Retrieve min from "value":
+```
+index=dockertest | rex "<value>(?<value>[^<]+)</value>" | table value | dedup value | stats min(value)
+```
 
 ## Project Structure
 
