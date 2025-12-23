@@ -174,6 +174,11 @@ index=dockertest | rex "<value>(?<value>[^<]+)</value>" | table value | dedup va
 index=dockertest | rex "<value>(?<value>[^<]+)</value>" | table value | dedup value | stats min(value)
 ```
 
+5.2. Retrieve max from "value":
+```
+index=dockertest | rex "<value>(?<value>[^<]+)</value>" | table value | dedup value | stats max(value)
+```
+
 ## Project Structure
 
 ```
